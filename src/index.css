@@ -1,65 +1,201 @@
-/* DISP */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-  margin: 0px;
-  padding: 0px;
-  user-select: none;
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
   font-family: "Poppins", sans-serif;
+  user-select: none;
 }
 
-a{
+a {
   color: inherit;
-  transition: all 0.3s ease-in-out;
+  transition: 0.3s ease;
 }
 
-
-.row{
+/* ================= FLEX UTILITIES ================= */
+.row,
+.row-sb,
+.column {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+}
+
+.row {
   justify-content: center;
   align-items: center;
 }
 
-.column-fs{
-  display: flex;
+.row-sb {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column {
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+/* ================= TYPOGRAPHY ================= */
+.home-image-container h1 {
+  font-size: clamp(2rem, 10vw, 5rem);
 }
 
-/* FONTS */
-
-.b-page-para{
-  font-size: 0.8rem;
-  line-height: 25px;
+.about-container p {
+  font-size: clamp(1rem, 5vw, 1.1rem);
+  color: rgb(32, 32, 32);
 }
 
-.b-page a:hover{
-  color: rgb(236, 236, 236);
+span {
+  font-size: 14px;
+  color: rgb(168, 168, 168);
 }
 
+.title-tag {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgb(126, 126, 126);
+}
 
-/* CONTAINER */
+.view-more-btn span {
+  font-size: 13px;
+  transition: 0.3s ease;
+}
 
-.b-page{
+.view-container p {
+  font-size: 14px;
+  color: rgb(126, 126, 126);
+}
+
+/* ================= HOME SECTION ================= */
+.home {
   width: 100%;
-  height: 100vh;
+  transition: 0.3s ease;
+}
+
+.home-bg-black {
   background-color: black;
-  color: rgb(206, 206, 206);
 }
 
-.para{
-  width: 600px;
+.main-container {
+  width: 750px;
+  position: relative;
+}
+
+.home-image-container {
+  width: 100%;
+  margin-top: 120px;
+}
+
+/* ================= THEME TOGGLE ================= */
+.background-color-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: rgb(211, 211, 211);
+  cursor: pointer;
+  transition: 0.2s ease;
+  z-index: 10;
+}
+
+.background-color-container:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.bg-clr-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  transform: translateX(0);
+  transition: 0.3s ease;
+}
+
+.bg-clr-btn-on {
+  transform: translateX(28px);
+  background-color: white;
+  color: black;
+}
+
+/* ================= IMAGE SECTION ================= */
+.image-section {
+  position: relative;
+}
+
+.image-section::before,
+.image-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.image-section::after {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  opacity: 1;
+}
+
+.image-section::before {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  opacity: 0;
+}
+
+.home-bg-black .image-section::after { opacity: 0; }
+.home-bg-black .image-section::before { opacity: 1; }
+
+.profile-image {
+  width: 250px;
+  height: 250px;
+  -webkit-user-drag: none;
+}
+
+/* ================= CONTENT SECTIONS ================= */
+.about-container,
+.experience-container {
+  padding: 20px 0;
+}
+
+.view-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.view-container.openView { height: auto; }
+.view-container.closeView { height: 80px; }
+
+.more-container {
+  width: 100%;
+}
+
+.view-more-btn {
+  color: rgb(95, 95, 95);
+  cursor: pointer;
+}
+
+.view-more-btn span:hover {
+  color: rgb(48, 48, 48);
+}
+
+.view-container.closeView {
+  height: 80px;
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+.view-container.openView {
   height: auto;
-  padding: 10px 0px;
+  mask-image: none;
+  -webkit-mask-image: none;
 }
-
-/* MEDIA QUERIES */
