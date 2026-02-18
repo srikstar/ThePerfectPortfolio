@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Expandable({ children }) {
   const [open, setOpen] = useState(false)
@@ -44,7 +45,7 @@ function Home() {
           <h1>Srikanth Reddy</h1>
           <span>/ˈsriːkɑːnt ˈrɛdi ɛn/ • noun • {time} IST</span>
         </div>
-
+        <br /><br />
         <div className="about-container">
           <p>
             a front-end developer with a solid background in contemporary web technologies and full-stack architecture.
@@ -73,6 +74,7 @@ function Home() {
             <br />
             <p>Additionally, I performed patch upgrades, addressed security vulnerabilities to maintain compliance standards, and developed shell scripts to automate routine tasks, reducing manual intervention and improving overall system efficiency.</p>
           </Expandable>
+
         </div>
 
         <div className="experience-container">
@@ -90,6 +92,56 @@ function Home() {
             <p>Beyond academics, I actively participated in cultural activities and was a member of the football and table tennis teams, developing teamwork, discipline, and leadership skills alongside my technical growth.</p>
           </Expandable>
         </div>
+
+        <div className="experience-container">
+          <span className="title-tag">PROJECTS</span>
+          <br /><br />
+
+          <div className="project-dev-container row">
+            <div className="project">
+              <div className="row-sb">
+                <p>Sugar Orbit</p>
+                <span>In ongoing development</span>
+              </div>
+              <Expandable>
+                <p>Sugar Orbit is currently under active development as a modern, scalable e-commerce platform focused on delivering a seamless digital experience for sweets, namkeens, and chocolates. The project is being built with a strong emphasis on clean architecture, responsive design, and performance optimization, ensuring a smooth and intuitive user journey across devices.</p>
+                <br />
+                <p>The platform is being developed using modern web technologies with a focus on secure authentication, optimized product management, and a scalable backend structure. Ongoing improvements include refining UI interactions, enhancing performance, strengthening security practices, and preparing the system for production-grade deployment with robust infrastructure and monitoring.</p>
+              </Expandable>
+            </div>
+          </div>
+
+          <br /><br />
+
+          <div className="project-dev-container row">
+            <div className="project">
+              <div className="row-sb">
+                <p>Ticketo</p>
+                <span>In ongoing development</span>
+              </div>
+              <Expandable>
+                <p>Ticketo is a full-stack movie ticket booking platform inspired by BookMyShow, currently under active development to simulate a real-world cinema reservation experience. The application enables users to browse movies, explore show timings, select seats dynamically, and proceed through an intuitive booking flow powered by a responsive React-based frontend.</p>
+                <br />
+                <p>The backend is built using Node.js to manage booking logic, seat availability handling, and secure user authentication, with ongoing enhancements focused on scalability, performance optimization, and improved state management. As development progresses, the platform is being refined with cleaner architecture, stronger validation mechanisms, and production-ready deployment planning to deliver a robust and scalable ticketing solution.</p>
+              </Expandable>
+            </div>
+          </div>
+        </div>
+
+        <br /><br />
+
+        <div className="row-sb">
+          <Link className='links' to='https://arkaholistic.com/' target='_blank'><p>Arka Holistics</p></Link>
+          <span>Aug 2025</span>
+        </div>
+        <Expandable>
+          <p>Arka Holistic is a fully responsive wellness platform developed for a yoga and sound healing brand, designed to deliver a calm, immersive, and user-centric digital experience. Built with React for a dynamic and component-driven frontend, the application ensures smooth navigation, reusable UI architecture, and optimized rendering across devices with a mobile-first approach.</p>
+          <br />
+          <p>The backend and server-side functionalities are powered by Node.js, enabling scalable structure, efficient data handling, and future-ready extensibility. The project emphasizes performance optimization, clean code practices, and structured component design, and is deployed on Hostinger to ensure reliable hosting, stable production availability, and fast load performance.</p>
+        </Expandable>
+
+
+
 
       </section>
     </div>

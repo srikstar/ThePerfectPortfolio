@@ -66,8 +66,41 @@ span {
 }
 
 .view-container p {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 400;
   color: rgb(126, 126, 126);
+  line-height: 25px;
+}
+
+.links{
+  color: blue;
+  text-decoration: none;
+}
+
+.links:hover{
+  text-decoration: underline;
+}
+
+/* ================= 404 SECTION ================= */
+.b-page {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: rgb(206, 206, 206);
+}
+
+.b-page-para {
+  font-size: 0.8rem;
+  line-height: 25px;
+}
+
+.b-page a:hover {
+  color: rgb(236, 236, 236);
+}
+
+.para {
+  width: 600px;
+  padding: 10px 0;
 }
 
 /* ================= HOME SECTION ================= */
@@ -81,8 +114,9 @@ span {
 }
 
 .main-container {
-  width: 750px;
+  width: 700px;
   position: relative;
+  padding-bottom: 150px;
 }
 
 .home-image-container {
@@ -92,7 +126,7 @@ span {
 
 /* ================= THEME TOGGLE ================= */
 .background-color-container {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   width: 60px;
@@ -198,4 +232,16 @@ span {
   height: auto;
   mask-image: none;
   -webkit-mask-image: none;
+}
+
+.project-dev-container{
+  width: 100%;
+  height: auto;
+  padding: 30px 0px;
+  border-radius: 15px;
+  border: 1px solid rgb(197, 197, 197);
+}
+
+.project{
+  width: 80%;
 }
