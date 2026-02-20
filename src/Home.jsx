@@ -28,7 +28,7 @@ function Home() {
   const [time, setTime] = useState(new Date().toTimeString().slice(0, 8))
 
   useEffect(() => {
-    document.title = 'Srikanth Reddy | Portfolio'
+    document.title = 'Srikanth Reddy'
     const interval = setInterval(() => {
       setTime(new Date().toTimeString().slice(0, 8))
     }, 1000)
@@ -92,7 +92,7 @@ function Home() {
             <span>Jun 2019 - Nov 2023</span>
           </div>
           <Expandable>
-            <p>I completed my Bachelor of <Link>Information Science and Engineering</Link> from Presidency University (2019 - 2023) with a CGPA of 7.92, gaining a strong foundation in core subjects such as Database Management Systems, Operating Systems, Data Structures, Java, Python, and Web Technologies.</p>
+            <p>I completed my Bachelor of <Link to='https://www.google.com/search?q=Information+Science+and+Engineering&ie=UTF-8' target='_blank'>Information Science and Engineering</Link> from Presidency University (2019 - 2023) with a CGPA of 7.92, gaining a strong foundation in core subjects such as Database Management Systems, Operating Systems, Data Structures, Java, Python, and Web Technologies.</p>
             <br />
             <p>The program strengthened my problem-solving abilities and provided hands-on experience in building structured, scalable software solutions aligned with industry practices.</p>
             <br />
@@ -138,7 +138,7 @@ function Home() {
         <br /><br />
 
         <div className="flex-row-space-between">
-          <div className='row'><p className='title'>Arka Holistics <Link className='inline-link' to='https://arkaholistic.com/' target='_blank'>link</Link></p></div>
+          <div className='row'><p className='title'>Arka Holistics &nbsp;<Link className='inline-link' to='https://arkaholistic.com/' target='_blank'>link</Link></p></div>
           <span>Aug 2025</span>
         </div>
         <Expandable>
@@ -203,7 +203,7 @@ function Home() {
         <div className="section-block">
           <span className="section-label">CONTACT</span>
           <br /><br />
-          <p className='contact-text'>Find me on <Link className='contact-link' to='/linkedin'>LinkedIn</Link> or reach out via <Link className='contact-link' to='/email'>email</Link> </p>
+          <p className='contact-text'>Find me on <Link className='contact-link' to='https://www.linkedin.com/in/srikanthreddyn/' target='_blank'>LinkedIn</Link> or reach out via <Link className='contact-link' to='mailto:srikanthreddyyn@gmail.com'>Email</Link> </p>
         </div>
 
       </section>

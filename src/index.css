@@ -49,7 +49,7 @@ a {
 }
 
 span {
-  font-size: 14px;
+  font-size: 15px;
   color: rgb(168, 168, 168);
 }
 
@@ -85,8 +85,14 @@ span {
 }
 
 .inline-link {
-  font-size: 10px;
+  font-size: 14px;
+  color: rgb(134, 134, 134);
 }
+
+.inline-link:hover {
+  color: rgb(31, 31, 31);
+}
+
 
 b {
   color: grey;
@@ -200,7 +206,7 @@ b {
 /* ================= SECTION BLOCKS ================= */
 .hero-bio,
 .section-block {
-  padding: 20px 0;
+  padding: calc(1vh + 1vw) 0px;
 }
 
 /* ================= EXPANDABLE ================= */
@@ -229,6 +235,7 @@ b {
 .expandable-toggle {
   color: rgb(95, 95, 95);
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .expandable-toggle span:hover {
@@ -245,12 +252,12 @@ b {
 }
 
 .project-card-content {
-  width: 80%;
+  width: 85%;
 }
 
 /* ================= GITHUB HEATMAP ================= */
 .github-wrapper {
-  padding: 20px;
+  padding: 10px 0px;
   border-radius: 12px;
   overflow-x: auto;
   scrollbar-width: none;
@@ -323,6 +330,7 @@ b {
 
 /* ================= ABOUT PHOTO ================= */
 .about-photo {
+  width: 100%;
   -webkit-mask-image: radial-gradient(circle at center,
                       black 55%,
                       rgba(0,0,0,0.8) 70%,
@@ -382,8 +390,8 @@ b {
   }
 
   .hero-profile-image {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
 
   .flex-row-space-between {
