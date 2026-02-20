@@ -40,7 +40,7 @@ function Home() {
 
       <div className="theme-toggle-wrapper" onClick={() => setDarkMode(!darkMode)}>
         <div className={`theme-toggle-btn flex-row ${darkMode ? 'theme-toggle-btn--active' : ''}`}>
-          <h3>{darkMode ? '☼' : '☾'}</h3>
+          <h3 className='toggle'>{darkMode ? '☼' : '☾'}</h3>
         </div>
       </div>
 

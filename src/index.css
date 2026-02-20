@@ -499,6 +499,10 @@ b {
   color: rgb(140, 140, 140);
 }
 
+.portfolio-page--dark .toggle{
+  color: orange;
+}
+
 .portfolio-page--dark .expandable-toggle {
   color: rgb(160, 160, 160);
 }
