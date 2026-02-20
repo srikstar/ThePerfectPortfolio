@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import GithubHeatmap from "./GithubHeatmap";
 
 function Expandable({ children }) {
   const [open, setOpen] = useState(false)
@@ -16,6 +17,14 @@ function Expandable({ children }) {
 }
 
 function Home() {
+
+  const images = [
+    'https://cdn.simpleicons.org/javascript', 'https://cdn.simpleicons.org/python', 'https://cdn.simpleicons.org/react', 'https://cdn.simpleicons.org/firebase'
+    , 'https://cdn.simpleicons.org/mongodb', 'https://cdn.simpleicons.org/github', 'https://cdn.simpleicons.org/linux', 'https://cdn.simpleicons.org/figma'
+    , 'https://nodejs.org/static/logos/jsIconGreen.svg', 'https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000', 'https://img.icons8.com/?size=100&id=p2VooZ9Gcgxm&format=png&color=000000'
+  ]
+
+
   const [darkMode, setDarkMode] = useState(false)
   const [time, setTime] = useState(new Date().toTimeString().slice(0, 8))
 
@@ -140,11 +149,83 @@ function Home() {
           <p>The backend and server-side functionalities are powered by Node.js, enabling scalable structure, efficient data handling, and future-ready extensibility. The project emphasizes performance optimization, clean code practices, and structured component design, and is deployed on Hostinger to ensure reliable hosting, stable production availability, and fast load performance.</p>
         </Expandable>
 
+        <br />
+        <div className="experience-container">
+          <span className="title-tag">GITHUB CONTRIBUTIONS</span>
+          <br /><br />
+          <GithubHeatmap />
+        </div>
 
 
 
-      </section>
-    </div>
+        {/* /RESEARCH PAPER */}
+        <div className="experience-container">
+          <span className="title-tag">RESEARCH PAPER</span>
+          <br /><br />
+          <div className="">
+            <p>Information Extraction Using Natural Language Processing</p>
+            <span>International Journal of Scientific Research in Engineering and Management, 06(05) <br />
+              ( DOI: 10.55041/IJSREM13271 )</span>
+            <br />
+            <p className='authors'>Authors : Srikanth Reddy, Varun Reji , Umar Shariff &nbsp;   <Link className='links' to='https://www.researchgate.net/publication/360633194_INFORMATION_EXTRACTION_USING_NATURAL_LANGUAGE_PROCESSING' target='_blank'>View Publication</Link></p>
+          </div>
+          <Expandable>
+            <b>Abstract</b>
+            <p>The expanding volume of data/Information creates a new challenge for Information Extraction techniques. The amount of unstructured data has increased in recent years. When we use this data in a clean and better way, we can extract wide variety of beneficial outcomes. Reduction of a text to its essential content, is a very complex problem which, despite the progress in the area thus far, poses many challenges to the scientific community. It is also a relevant application in today’s information society given the enormous amount of production and processing of data, leading to exponential growth of textual information online and the need to momentarily assess the contents of text collections. Information Extraction using Natural Language Text is used to process, or extract and encode information from unstructured data and produce desired output data according to the application. This review article is about how Information Extraction is done using NLP (Natural language Processing)</p>
+          </Expandable>
+        </div>
+
+
+        {/* /TECHSTACK */}
+
+        <div className="experience-container">
+          <span className="title-tag">TECH STACK</span>
+          <br /><br />
+          <p>I'm comfortable working across a wide range of technologies, but these are the tools I've consistently relied on and refined through hands-on experience.</p>
+
+
+
+          <div className="slider-container">
+            <div className="slider row">
+              {[...images, ...images].map((img, index) => (
+                <div key={index}>
+                  <img className="tech-stack-img" src={img} alt="tech-stack-img" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* /ABOUT ME */}
+
+        <br />
+        <div className="experience-container">
+          <span className="title-tag">ABOUT ME</span>
+          <br /><br />
+          <p>I am driven, disciplined, and committed to continuous self-improvement through consistent effort, patience, and a strong growth mindset, always striving to become better every single day.</p>
+          <br />
+          <p>I enjoy playing football, love drawing art and taking random pictures, value creativity and teamwork, and constantly look for opportunities to improve situations and push myself beyond my limits.</p>
+          <br />
+          <img className='about-image' src="./about-img.jpeg" alt="about-image" />
+          <i><p className='authors'>Captured in silence&nbsp;   <Link to='https://vsco.co/blackwoodseven/gallery' target='_blank'>link</Link></p></i>
+        </div>
+
+
+        {/* /CONTACT */}
+
+        <br />
+        <div className="experience-container">
+          <span className="title-tag">CONTACT</span>
+          <br /><br />
+          
+                
+       </div>
+
+
+
+
+      </section >
+    </div >
   )
 }
 

@@ -9,6 +9,8 @@
   user-select: none;
 }
 
+
+
 a {
   color: inherit;
   transition: 0.3s ease;
@@ -44,7 +46,7 @@ a {
 }
 
 .about-container p {
-  font-size: clamp(1rem, 5vw, 1.1rem);
+  font-size: clamp(1rem, 5vw, 1.2rem);
   color: rgb(32, 32, 32);
 }
 
@@ -72,13 +74,22 @@ span {
   line-height: 25px;
 }
 
-.links{
-  color: blue;
+.links {
   text-decoration: none;
 }
 
-.links:hover{
+b {
+  color: grey;
+  font-size: 12px;
+}
+
+.links:hover {
   text-decoration: underline;
+}
+
+.authors {
+  font-size: 13px;
+  padding: 3px 0px;
 }
 
 /* ================= 404 SECTION ================= */
@@ -176,17 +187,22 @@ span {
 }
 
 .image-section::after {
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
   opacity: 1;
 }
 
 .image-section::before {
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   opacity: 0;
 }
 
-.home-bg-black .image-section::after { opacity: 0; }
-.home-bg-black .image-section::before { opacity: 1; }
+.home-bg-black .image-section::after {
+  opacity: 0;
+}
+
+.home-bg-black .image-section::before {
+  opacity: 1;
+}
 
 .profile-image {
   width: 250px;
@@ -206,8 +222,13 @@ span {
   margin-top: 10px;
 }
 
-.view-container.openView { height: auto; }
-.view-container.closeView { height: 80px; }
+.view-container.openView {
+  height: auto;
+}
+
+.view-container.closeView {
+  height: 80px;
+}
 
 .more-container {
   width: 100%;
@@ -234,7 +255,7 @@ span {
   -webkit-mask-image: none;
 }
 
-.project-dev-container{
+.project-dev-container {
   width: 100%;
   height: auto;
   padding: 30px 0px;
@@ -242,6 +263,100 @@ span {
   border: 1px solid rgb(197, 197, 197);
 }
 
-.project{
+.project {
   width: 80%;
+}
+
+.github-wrapper {
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  color: grey;
+}
+
+
+.github-wrapper svg {
+  width: 100%;
+  height: auto;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 50px 0px 20px 0px;
+  overflow: hidden;
+}
+
+/* LEFT FADE */
+.slider-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  /* adjust fade width */
+  height: 100%;
+  background: linear-gradient(to right, white, transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* RIGHT FADE */
+.slider-container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  /* adjust fade width */
+  height: 100%;
+  background: linear-gradient(to left, white, transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slider {
+  display: flex;
+  width: max-content;
+  gap: calc(2vh + 2vw);
+  animation: slider 15s linear infinite;
+}
+
+.tech-stack-img {
+  width: 50px;
+  image-rendering: crisp-edges;
+  filter: grayscale(100%);
+}
+
+
+.tech-stack-img:hover {
+  filter: grayscale(0%);
+}
+
+
+
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.about-image {
+  -webkit-mask-image: radial-gradient(circle at center,
+                      black 55%,
+                      rgba(0,0,0,0.8) 70%,
+                      transparent 100%);
+  mask-image: radial-gradient(circle at center,
+               black 55%,
+               rgba(0,0,0,0.8) 70%,
+               transparent 100%);
 }
