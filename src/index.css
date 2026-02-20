@@ -9,43 +9,41 @@
   user-select: none;
 }
 
-
-
 a {
   color: inherit;
   transition: 0.3s ease;
 }
 
 /* ================= FLEX UTILITIES ================= */
-.row,
-.row-sb,
-.column {
+.flex-row,
+.flex-row-space-between,
+.flex-column {
   display: flex;
   flex-wrap: wrap;
 }
 
-.row {
+.flex-row {
   justify-content: center;
   align-items: center;
 }
 
-.row-sb {
+.flex-row-space-between {
   justify-content: space-between;
   align-items: center;
 }
 
-.column {
+.flex-column {
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 /* ================= TYPOGRAPHY ================= */
-.home-image-container h1 {
+.hero-section h1 {
   font-size: clamp(2rem, 10vw, 5rem);
 }
 
-.about-container p {
+.hero-bio p {
   font-size: clamp(1rem, 5vw, 1.2rem);
   color: rgb(32, 32, 32);
 }
@@ -55,27 +53,39 @@ span {
   color: rgb(168, 168, 168);
 }
 
-.title-tag {
+.section-label {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
   color: rgb(126, 126, 126);
 }
 
-.view-more-btn span {
+.expandable-toggle span {
   font-size: 13px;
   transition: 0.3s ease;
 }
 
-.view-container p {
+.expandable-content p {
   font-size: 13px;
   font-weight: 400;
   color: rgb(126, 126, 126);
   line-height: 25px;
 }
 
-.links {
-  text-decoration: none;
+.title{
+  font-size: clamp(1rem, 5vw, 1.2rem)
+}
+
+.contact-link {
+  color: black;
+}
+
+.contact-text {
+  color: grey;
+}
+
+.inline-link {
+  font-size: 10px;
 }
 
 b {
@@ -83,60 +93,37 @@ b {
   font-size: 12px;
 }
 
-.links:hover {
-  text-decoration: underline;
-}
 
-.authors {
+.meta-text {
   font-size: 13px;
   padding: 3px 0px;
+  color: grey;
 }
 
-/* ================= 404 SECTION ================= */
-.b-page {
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  color: rgb(206, 206, 206);
-}
-
-.b-page-para {
-  font-size: 0.8rem;
-  line-height: 25px;
-}
-
-.b-page a:hover {
-  color: rgb(236, 236, 236);
-}
-
-.para {
-  width: 600px;
-  padding: 10px 0;
-}
-
-/* ================= HOME SECTION ================= */
-.home {
+/* ================= PORTFOLIO PAGE ================= */
+.portfolio-page {
   width: 100%;
   transition: 0.3s ease;
 }
 
-.home-bg-black {
+.portfolio-page--dark {
   background-color: black;
 }
 
-.main-container {
+.portfolio-content {
   width: 700px;
   position: relative;
   padding-bottom: 150px;
 }
 
-.home-image-container {
+/* ================= HERO SECTION ================= */
+.hero-section {
   width: 100%;
   margin-top: 120px;
 }
 
 /* ================= THEME TOGGLE ================= */
-.background-color-container {
+.theme-toggle-wrapper {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -149,11 +136,11 @@ b {
   z-index: 10;
 }
 
-.background-color-container:hover {
+.theme-toggle-wrapper:hover {
   background-color: rgb(224, 224, 224);
 }
 
-.bg-clr-btn {
+.theme-toggle-btn {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -163,19 +150,19 @@ b {
   transition: 0.3s ease;
 }
 
-.bg-clr-btn-on {
+.theme-toggle-btn--active {
   transform: translateX(28px);
   background-color: white;
   color: black;
 }
 
-/* ================= IMAGE SECTION ================= */
-.image-section {
+/* ================= HERO PROFILE IMAGE ================= */
+.hero-profile-image-wrapper {
   position: relative;
 }
 
-.image-section::before,
-.image-section::after {
+.hero-profile-image-wrapper::before,
+.hero-profile-image-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -186,76 +173,70 @@ b {
   transition: opacity 0.3s ease;
 }
 
-.image-section::after {
+.hero-profile-image-wrapper::after {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
   opacity: 1;
 }
 
-.image-section::before {
+.hero-profile-image-wrapper::before {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   opacity: 0;
 }
 
-.home-bg-black .image-section::after {
+.portfolio-page--dark .hero-profile-image-wrapper::after {
   opacity: 0;
 }
 
-.home-bg-black .image-section::before {
+.portfolio-page--dark .hero-profile-image-wrapper::before {
   opacity: 1;
 }
 
-.profile-image {
+.hero-profile-image {
   width: 250px;
   height: 250px;
   -webkit-user-drag: none;
 }
 
-/* ================= CONTENT SECTIONS ================= */
-.about-container,
-.experience-container {
+/* ================= SECTION BLOCKS ================= */
+.hero-bio,
+.section-block {
   padding: 20px 0;
 }
 
-.view-container {
+/* ================= EXPANDABLE ================= */
+.expandable-content {
   width: 100%;
   overflow: hidden;
   margin-top: 10px;
 }
 
-.view-container.openView {
-  height: auto;
-}
-
-.view-container.closeView {
-  height: 80px;
-}
-
-.more-container {
-  width: 100%;
-}
-
-.view-more-btn {
-  color: rgb(95, 95, 95);
-  cursor: pointer;
-}
-
-.view-more-btn span:hover {
-  color: rgb(48, 48, 48);
-}
-
-.view-container.closeView {
-  height: 80px;
-  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-}
-
-.view-container.openView {
+.expandable-content--open {
   height: auto;
   mask-image: none;
   -webkit-mask-image: none;
 }
 
-.project-dev-container {
+.expandable-content--closed {
+  height: 80px;
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+.expandable-inner {
+  width: 100%;
+}
+
+.expandable-toggle {
+  color: rgb(95, 95, 95);
+  cursor: pointer;
+}
+
+.expandable-toggle span:hover {
+  color: rgb(48, 48, 48);
+}
+
+/* ================= PROJECT CARD ================= */
+.project-card {
   width: 100%;
   height: auto;
   padding: 30px 0px;
@@ -263,26 +244,26 @@ b {
   border: 1px solid rgb(197, 197, 197);
 }
 
-.project {
+.project-card-content {
   width: 80%;
 }
 
+/* ================= GITHUB HEATMAP ================= */
 .github-wrapper {
   padding: 20px;
   border-radius: 12px;
   overflow-x: auto;
-  overflow-x: auto;
   scrollbar-width: none;
   color: grey;
 }
-
 
 .github-wrapper svg {
   width: 100%;
   height: auto;
 }
 
-.slider-container {
+/* ================= TECH STACK SLIDER ================= */
+.techstack-slider-container {
   position: relative;
   width: 100%;
   height: 100px;
@@ -290,67 +271,58 @@ b {
   overflow: hidden;
 }
 
-/* LEFT FADE */
-.slider-container::before {
+.techstack-slider-container::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 120px;
-  /* adjust fade width */
   height: 100%;
   background: linear-gradient(to right, white, transparent);
   z-index: 2;
   pointer-events: none;
 }
 
-/* RIGHT FADE */
-.slider-container::after {
+.techstack-slider-container::after {
   content: "";
   position: absolute;
   right: 0;
   top: 0;
   width: 120px;
-  /* adjust fade width */
   height: 100%;
   background: linear-gradient(to left, white, transparent);
   z-index: 2;
   pointer-events: none;
 }
 
-.slider {
+.techstack-slider {
   display: flex;
   width: max-content;
   gap: calc(2vh + 2vw);
-  animation: slider 15s linear infinite;
+  animation: techstack-scroll 15s linear infinite;
 }
 
-.tech-stack-img {
+.techstack-icon {
   width: 50px;
   image-rendering: crisp-edges;
   filter: grayscale(100%);
 }
 
-
-.tech-stack-img:hover {
+.techstack-icon:hover {
   filter: grayscale(0%);
 }
 
-
-
-
-@keyframes slider {
+@keyframes techstack-scroll {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
 }
 
-
-.about-image {
+/* ================= ABOUT PHOTO ================= */
+.about-photo {
   -webkit-mask-image: radial-gradient(circle at center,
                       black 55%,
                       rgba(0,0,0,0.8) 70%,
@@ -360,3 +332,206 @@ b {
                rgba(0,0,0,0.8) 70%,
                transparent 100%);
 }
+
+/* ================= 404 PAGE ================= */
+.b-page {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: rgb(206, 206, 206);
+}
+
+.column-fs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.para {
+  width: 600px;
+}
+
+.b-page-para {
+  font-size: 0.8rem;
+  line-height: 25px;
+}
+
+.b-page a {
+  color: rgb(206, 206, 206);
+  transition: 0.3s ease;
+}
+
+.b-page a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet — 768px and below */
+@media (max-width: 768px) {
+
+  .portfolio-content {
+    width: 90%;
+    padding-bottom: 100px;
+  }
+
+  .hero-section {
+    margin-top: 80px;
+  }
+
+  .hero-profile-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .flex-row-space-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .project-card-content {
+    width: 90%;
+  }
+
+  .techstack-slider-container::before,
+  .techstack-slider-container::after {
+    width: 60px;
+  }
+
+  .para {
+    width: 100%;
+  }
+
+  .column-fs {
+    padding: 0 24px;
+  }
+}
+
+/* Mobile — 480px and below */
+@media (max-width: 480px) {
+
+  .portfolio-content {
+    width: 88%;
+    padding-bottom: 80px;
+  }
+
+  .hero-section {
+    margin-top: 60px;
+  }
+
+  .hero-profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-profile-image-wrapper::after,
+  .hero-profile-image-wrapper::before {
+    height: 80px;
+  }
+
+  .theme-toggle-wrapper {
+    top: 12px;
+    right: 12px;
+    width: 52px;
+  }
+
+  .section-label {
+    font-size: 11px;
+  }
+
+  .techstack-icon {
+    width: 36px;
+  }
+
+  .techstack-slider-container {
+    height: 80px;
+    padding: 35px 0px 15px 0px;
+  }
+
+  .techstack-slider-container::before,
+  .techstack-slider-container::after {
+    width: 40px;
+  }
+
+  .project-card {
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+
+  .project-card-content {
+    width: 88%;
+  }
+
+  .github-wrapper {
+    padding: 10px;
+  }
+
+  .column-fs {
+    padding: 0 20px;
+  }
+
+  .b-page-para {
+    font-size: 0.75rem;
+  }
+}
+
+/* ================= DARK MODE OVERRIDES ================= */
+
+.portfolio-page--dark h1,
+.portfolio-page--dark h2,
+.portfolio-page--dark h3,
+.portfolio-page--dark p {
+  color: rgb(220, 220, 220);
+}
+
+.portfolio-page--dark .hero-bio p {
+  color: rgb(200, 200, 200);
+}
+
+.portfolio-page--dark .expandable-content p {
+  color: rgb(160, 160, 160);
+}
+
+.portfolio-page--dark .section-label {
+  color: rgb(140, 140, 140);
+}
+
+.portfolio-page--dark .expandable-toggle {
+  color: rgb(160, 160, 160);
+}
+
+.portfolio-page--dark .expandable-toggle span:hover {
+  color: rgb(220, 220, 220);
+}
+
+.portfolio-page--dark .meta-text {
+  color: rgb(140, 140, 140);
+}
+
+.portfolio-page--dark .contact-text {
+  color: rgb(160, 160, 160);
+}
+
+.portfolio-page--dark .contact-link {
+  color: rgb(220, 220, 220);
+}
+
+.portfolio-page--dark .inline-link:hover {
+  color: rgb(255, 255, 255);
+}
+
+.portfolio-page--dark .project-card {
+  border-color: rgb(60, 60, 60);
+}
+
+.portfolio-page--dark .techstack-slider-container::before {
+  background: linear-gradient(to right, black, transparent);
+}
+
+.portfolio-page--dark .techstack-slider-container::after {
+  background: linear-gradient(to left, black, transparent);
+}
+

@@ -10,7 +10,7 @@ function None() {
 
     return (
         <>
-            <div className="b-page row">
+            <div className="b-page flex-row">
                 <div className="column-fs">
                     <h3>Nice Try |  404 Error</h3>
                     <p className="para b-page-para">

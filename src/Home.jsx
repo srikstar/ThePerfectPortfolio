@@ -6,10 +6,10 @@ function Expandable({ children }) {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <div className={`view-container ${open ? 'openView' : 'closeView'}`}>
-        <div className="more-container">{children}</div>
+      <div className={`expandable-content ${open ? 'expandable-content--open' : 'expandable-content--closed'}`}>
+        <div className="expandable-inner">{children}</div>
       </div>
-      <div className="view-more-btn" onClick={() => setOpen(!open)}>
+      <div className="expandable-toggle" onClick={() => setOpen(!open)}>
         <span>{open ? 'View Less ↑' : 'View More ↓'}</span>
       </div>
     </>
@@ -24,7 +24,6 @@ function Home() {
     , 'https://nodejs.org/static/logos/jsIconGreen.svg', 'https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000', 'https://img.icons8.com/?size=100&id=p2VooZ9Gcgxm&format=png&color=000000'
   ]
 
-
   const [darkMode, setDarkMode] = useState(false)
   const [time, setTime] = useState(new Date().toTimeString().slice(0, 8))
 
@@ -37,25 +36,25 @@ function Home() {
   }, [])
 
   return (
-    <div className={`home row ${darkMode ? 'home-bg-black' : ''}`}>
+    <div className={`portfolio-page flex-row ${darkMode ? 'portfolio-page--dark' : ''}`}>
 
-      <div className="background-color-container" onClick={() => setDarkMode(!darkMode)}>
-        <div className={`bg-clr-btn row ${darkMode ? 'bg-clr-btn-on' : ''}`}>
+      <div className="theme-toggle-wrapper" onClick={() => setDarkMode(!darkMode)}>
+        <div className={`theme-toggle-btn flex-row ${darkMode ? 'theme-toggle-btn--active' : ''}`}>
           <h3>{darkMode ? '☼' : '☾'}</h3>
         </div>
       </div>
 
-      <section className="main-container">
+      <section className="portfolio-content">
 
-        <div className="home-image-container column">
-          <div className="image-section row">
-            <img className="profile-image" src="./profile-image.png" alt="profile" />
+        <div className="hero-section flex-column">
+          <div className="hero-profile-image-wrapper flex-row">
+            <img className="hero-profile-image" src="./profile-image.png" alt="profile" />
           </div>
           <h1>Srikanth Reddy</h1>
           <span>/ˈsriːkɑːnt ˈrɛdi ɛn/ • noun • {time} IST</span>
         </div>
         <br /><br />
-        <div className="about-container">
+        <div className="hero-bio">
           <p>
             a front-end developer with a solid background in contemporary web technologies and full-stack architecture.
             <br /><br />
@@ -63,11 +62,11 @@ function Home() {
           </p>
         </div>
 
-        <div className="experience-container">
-          <span className="title-tag">EXPERIENCE</span>
+        <div className="section-block">
+          <span className="section-label">EXPERIENCE</span>
           <br /><br />
-          <div className="row-sb">
-            <p>Tata Consultancy Services</p>
+          <div className="flex-row-space-between">
+            <p className='title'>Tata Consultancy Services</p>
             <span>May 2023, Bangalore</span>
           </div>
           <Expandable>
@@ -83,18 +82,17 @@ function Home() {
             <br />
             <p>Additionally, I performed patch upgrades, addressed security vulnerabilities to maintain compliance standards, and developed shell scripts to automate routine tasks, reducing manual intervention and improving overall system efficiency.</p>
           </Expandable>
-
         </div>
 
-        <div className="experience-container">
-          <span className="title-tag">EDUCATION</span>
+        <div className="section-block">
+          <span className="section-label">EDUCATION</span>
           <br /><br />
-          <div className="row-sb">
-            <p>Presidency University</p>
+          <div className="flex-row-space-between">
+            <p className='title'>Presidency University</p>
             <span>Jun 2019 - Nov 2023</span>
           </div>
           <Expandable>
-            <p>I completed my Bachelor of <b>Information Science and Engineering</b> from Presidency University (2019 - 2023) with a CGPA of 7.92, gaining a strong foundation in core subjects such as Database Management Systems, Operating Systems, Data Structures, Java, Python, and Web Technologies.</p>
+            <p>I completed my Bachelor of <Link>Information Science and Engineering</Link> from Presidency University (2019 - 2023) with a CGPA of 7.92, gaining a strong foundation in core subjects such as Database Management Systems, Operating Systems, Data Structures, Java, Python, and Web Technologies.</p>
             <br />
             <p>The program strengthened my problem-solving abilities and provided hands-on experience in building structured, scalable software solutions aligned with industry practices.</p>
             <br />
@@ -102,15 +100,15 @@ function Home() {
           </Expandable>
         </div>
 
-        <div className="experience-container">
-          <span className="title-tag">PROJECTS</span>
+        <div className="section-block">
+          <span className="section-label">PROJECTS</span>
           <br /><br />
 
-          <div className="project-dev-container row">
-            <div className="project">
-              <div className="row-sb">
-                <p>Sugar Orbit</p>
-                <span>In ongoing development</span>
+          <div className="project-card flex-row">
+            <div className="project-card-content">
+              <div className="flex-row-space-between">
+                <p className='title'>Sugar Orbit</p>
+                <span>ongoing development</span>
               </div>
               <Expandable>
                 <p>Sugar Orbit is currently under active development as a modern, scalable e-commerce platform focused on delivering a seamless digital experience for sweets, namkeens, and chocolates. The project is being built with a strong emphasis on clean architecture, responsive design, and performance optimization, ensuring a smooth and intuitive user journey across devices.</p>
@@ -122,11 +120,11 @@ function Home() {
 
           <br /><br />
 
-          <div className="project-dev-container row">
-            <div className="project">
-              <div className="row-sb">
-                <p>Ticketo</p>
-                <span>In ongoing development</span>
+          <div className="project-card flex-row">
+            <div className="project-card-content">
+              <div className="flex-row-space-between">
+                <p className='title'>Ticketo</p>
+                <span>ongoing development</span>
               </div>
               <Expandable>
                 <p>Ticketo is a full-stack movie ticket booking platform inspired by BookMyShow, currently under active development to simulate a real-world cinema reservation experience. The application enables users to browse movies, explore show timings, select seats dynamically, and proceed through an intuitive booking flow powered by a responsive React-based frontend.</p>
@@ -139,8 +137,8 @@ function Home() {
 
         <br /><br />
 
-        <div className="row-sb">
-          <Link className='links' to='https://arkaholistic.com/' target='_blank'><p>Arka Holistics</p></Link>
+        <div className="flex-row-space-between">
+          <div className='row'><p className='title'>Arka Holistics <Link className='inline-link' to='https://arkaholistic.com/' target='_blank'>link</Link></p></div>
           <span>Aug 2025</span>
         </div>
         <Expandable>
@@ -150,82 +148,66 @@ function Home() {
         </Expandable>
 
         <br />
-        <div className="experience-container">
-          <span className="title-tag">GITHUB CONTRIBUTIONS</span>
+        <div className="section-block">
+          <span className="section-label">GITHUB CONTRIBUTIONS</span>
           <br /><br />
-          <GithubHeatmap />
+          <GithubHeatmap darkMode={darkMode}/>
         </div>
 
-
-
-        {/* /RESEARCH PAPER */}
-        <div className="experience-container">
-          <span className="title-tag">RESEARCH PAPER</span>
+        <br />
+        <div className="section-block">
+          <span className="section-label">RESEARCH PAPER</span>
           <br /><br />
           <div className="">
-            <p>Information Extraction Using Natural Language Processing</p>
+            <p className='title'>Information Extraction Using Natural Language Processing</p>
             <span>International Journal of Scientific Research in Engineering and Management, 06(05) <br />
               ( DOI: 10.55041/IJSREM13271 )</span>
             <br />
-            <p className='authors'>Authors : Srikanth Reddy, Varun Reji , Umar Shariff &nbsp;   <Link className='links' to='https://www.researchgate.net/publication/360633194_INFORMATION_EXTRACTION_USING_NATURAL_LANGUAGE_PROCESSING' target='_blank'>View Publication</Link></p>
+            <p className='meta-text'>Authors : Srikanth Reddy, Varun Reji , Umar Shariff &nbsp;   <Link className='inline-link' to='https://www.researchgate.net/publication/360633194_INFORMATION_EXTRACTION_USING_NATURAL_LANGUAGE_PROCESSING' target='_blank'>View Publication</Link></p>
           </div>
           <Expandable>
             <b>Abstract</b>
-            <p>The expanding volume of data/Information creates a new challenge for Information Extraction techniques. The amount of unstructured data has increased in recent years. When we use this data in a clean and better way, we can extract wide variety of beneficial outcomes. Reduction of a text to its essential content, is a very complex problem which, despite the progress in the area thus far, poses many challenges to the scientific community. It is also a relevant application in today’s information society given the enormous amount of production and processing of data, leading to exponential growth of textual information online and the need to momentarily assess the contents of text collections. Information Extraction using Natural Language Text is used to process, or extract and encode information from unstructured data and produce desired output data according to the application. This review article is about how Information Extraction is done using NLP (Natural language Processing)</p>
+            <p>The expanding volume of data/Information creates a new challenge for Information Extraction techniques. The amount of unstructured data has increased in recent years. When we use this data in a clean and better way, we can extract wide variety of beneficial outcomes. Reduction of a text to its essential content, is a very complex problem which, despite the progress in the area thus far, poses many challenges to the scientific community. It is also a relevant application in today's information society given the enormous amount of production and processing of data, leading to exponential growth of textual information online and the need to momentarily assess the contents of text collections. Information Extraction using Natural Language Text is used to process, or extract and encode information from unstructured data and produce desired output data according to the application. This review article is about how Information Extraction is done using NLP (Natural language Processing)</p>
           </Expandable>
         </div>
-
-
-        {/* /TECHSTACK */}
-
-        <div className="experience-container">
-          <span className="title-tag">TECH STACK</span>
+        <br />
+        <div className="section-block">
+          <span className="section-label">TECH STACK</span>
           <br /><br />
           <p>I'm comfortable working across a wide range of technologies, but these are the tools I've consistently relied on and refined through hands-on experience.</p>
 
-
-
-          <div className="slider-container">
-            <div className="slider row">
+          <div className="techstack-slider-container">
+            <div className="techstack-slider flex-row">
               {[...images, ...images].map((img, index) => (
                 <div key={index}>
-                  <img className="tech-stack-img" src={img} alt="tech-stack-img" />
+                  <img className="techstack-icon" src={img} alt="tech-stack-img" />
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* /ABOUT ME */}
-
         <br />
-        <div className="experience-container">
-          <span className="title-tag">ABOUT ME</span>
+        <div className="section-block">
+          <span className="section-label">ABOUT ME</span>
           <br /><br />
           <p>I am driven, disciplined, and committed to continuous self-improvement through consistent effort, patience, and a strong growth mindset, always striving to become better every single day.</p>
           <br />
           <p>I enjoy playing football, love drawing art and taking random pictures, value creativity and teamwork, and constantly look for opportunities to improve situations and push myself beyond my limits.</p>
           <br />
-          <img className='about-image' src="./about-img.jpeg" alt="about-image" />
-          <i><p className='authors'>Captured in silence&nbsp;   <Link to='https://vsco.co/blackwoodseven/gallery' target='_blank'>link</Link></p></i>
+          <img className='about-photo' src="./about-img.jpeg" alt="about-image" />
+          <i><p className='meta-text'>Captured in silence&nbsp;   <Link to='https://vsco.co/blackwoodseven/gallery' target='_blank'>link</Link></p></i>
         </div>
 
-
-        {/* /CONTACT */}
-
         <br />
-        <div className="experience-container">
-          <span className="title-tag">CONTACT</span>
+        <div className="section-block">
+          <span className="section-label">CONTACT</span>
           <br /><br />
-          
-                
-       </div>
+          <p className='contact-text'>Find me on <Link className='contact-link' to='/linkedin'>LinkedIn</Link> or reach out via <Link className='contact-link' to='/email'>email</Link> </p>
+        </div>
 
-
-
-
-      </section >
-    </div >
+      </section>
+    </div>
   )
 }
 
